@@ -335,8 +335,8 @@
             <p>DIGITE O CÓDIGO DE VERIFICAÇÃO:</p>
             <div class="input-container">
                 <span class="input-icon">🔑</span>
-                <input type="text" id="verificationCode" class="input-field" placeholder="Digite o código aqui">
-                <span class="input-hint">1234...</span>
+                <input type="text" id="verificationCode" class="input-field" placeholder="1234...">
+                <span class="input-hint"></span>
             </div>
             <button class="btn btn-verify" onclick="verifyCode()">
                 <span class="icon">🔍</span> VERIFICAR CÓDIGO
@@ -352,7 +352,7 @@
         <div class="winners animate__animated animate__fadeInUp animate__delay-2s">
             <h3>ÚLTIMOS VENCEDORES:</h3>
             <ul class="winner-list" id="winnerList">
-                <!-- Os vencedores serão gerados dinamicamente -->
+                <!-- Vencedores serão gerados automaticamente -->
             </ul>
             <p class="deposit-note">*Depósito mínimo de BRL 35 para participar</p>
         </div>
@@ -411,14 +411,15 @@
         
         function verifyCode() {
             const inputCode = document.getElementById('verificationCode').value;
+            const correctCode = "SmartApp2025";
             const errorMsg = document.getElementById('errorMsg');
             const registerBtn = document.getElementById('registerBtn');
             
-            if (inputCode.trim() !== "") {
+            if (inputCode === correctCode) {
                 // Substitua esta URL pela que você deseja abrir
                 window.location.href = "https://smartappteam.github.io/br/";
             } else {
-                errorMsg.textContent = "Por favor, digite um código válido.";
+                errorMsg.textContent = "Código incorreto. Por favor, tente novamente.";
                 registerBtn.style.display = "flex";
                 registerBtn.classList.add('animate__animated', 'animate__headShake');
                 
